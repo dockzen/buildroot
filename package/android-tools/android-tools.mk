@@ -79,6 +79,7 @@ endef
 define ANDROID_TOOLS_INSTALL_TARGET_CMDS
 	$(foreach t,$(ANDROID_TOOLS_TARGETS),\
 		$(INSTALL) -D -m 0755 $(@D)/build-$(t)/$(t) $(TARGET_DIR)/usr/bin/$(t)$(sep))
+	$(INSTALL) -D -m 0755 package/android-tools/etc/init.d/adbd $(TARGET_DIR)/etc/init.d/S50adbd
 endef
 
 $(eval $(host-generic-package))
